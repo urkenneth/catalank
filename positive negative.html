@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+    <h1>Positive or Negative</h1>
+    <b><label for="Num">ENTER NUMBER: </label></b>
+    <input type="number" id="Num"/><br/>
+
+    <button onclick="check()">CHECK</button><br/><br/>
+    <h1>The number is </h1><h1 id="sagot"></h1><br/>
+    <button onclick="ClearFields()">CLEAR</button><br/><br/>
+    <script>
+        function check()
+        {
+            var num = parseFloat(document.getElementById('Num').value);
+
+            if (isNaN(num)) {
+                alert("Please enter valid number.");
+                return;
+            }
+
+            if (num>=0){
+                document.getElementById('sagot').innerHTML = 'Positive' ;
+                document.getElementById('sagot').style.color = 'SKYBLUE' ;
+            }
+            else {
+                document.getElementById('sagot').innerHTML = 'Negative';
+                document.getElementById('sagot').style.color = 'RED' ;
+            }
+        
+        }
+        function ClearFields() {
+
+            document.getElementById("Num").value = "";
+            document.getElementById("sagot").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

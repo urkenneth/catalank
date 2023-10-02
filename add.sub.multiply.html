@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <h1>Input 2 Number: ADD, SUB AND MULTIPLY</h1>
+    <b><label for="Num1">ENTER FIRST : </label></b>
+    <input type="number" id="num1"><br>
+
+    <b><label for="Num2">ENTER SECOND: </label></b>
+    <input type="number" id="num2"><br/><br/>
+
+    <button onclick="TwoInput()">COMPUTE</button><br/><br>
+    <h1><span id="sign"></span></h1><br>
+    <h1>Answer:<span id="result"></span></h1><br>
+    <button onclick="ClearFields()">CLEAR</button><br/><br/>
+
+    <script>
+        function TwoInput()
+        {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers in both fields.");
+                return;
+            }
+
+            if (num1 == num2){
+
+                var result = num2 - num1;
+                document.getElementById('sign').innerHTML =  "Subtract" ;
+                document.getElementById('sign').style.color = "white";
+                document.getElementById('result').innerHTML =  result ;
+                document.getElementById('result').style.color = "white";
+            }
+
+            else if (num1 > num2){
+
+	            var result = num1 + num2;
+                document.getElementById('sign').innerHTML =  "Addition" ;
+                document.getElementById('sign').style.color = "blue";
+                document.getElementById('result').innerHTML = result;
+                document.getElementById('result').style.color = "blue";
+	        }
+
+            else if (num1 < num2){
+
+	            var result = num1 * num2;
+                document.getElementById('sign').innerHTML =  "Multiply" ;
+                document.getElementById('sign').style.color = "green";
+                document.getElementById('result').innerHTML = result;
+                document.getElementById('result').style.color = "green";
+	        }
+        }
+
+        function ClearFields() {
+
+            document.getElementById("num1").value = "";
+            document.getElementById("num2").value = "";
+            document.getElementById("result").innerHTML = "";
+            document.getElementById("result").style.color = "GOLD";
+            document.getElementById("sign").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

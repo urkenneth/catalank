@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+    <h1>EVEN or ODD</h1>
+    <b><label for="Num">ENTER NUMBER: </label></b>
+    <input type="number" id="Num"><br/>
+
+    <button onclick="check()">CHECK</button><br/><br/>
+    <button onclick="ClearFields()">CLEAR</button><br/><br/>
+    <h1 id="sagot"> ANSWER </h1><br/>
+
+    <script>
+        function check()
+        {
+            var num = parseFloat(document.getElementById('Num').value);
+
+            if (isNaN(num)) {
+                alert("Please enter valid numbers in fields.");
+                return;
+            }
+
+            if (num % 2 == 0){
+                document.getElementById('sagot').innerHTML = 'The number is EVEN' ;
+                document.getElementById('sagot').style.color = 'SNOW';
+            }
+            else {
+                document.getElementById('sagot').innerHTML = 'The number is ODD';
+                document.getElementById('sagot').style.color = 'AQUAMARINE';
+            }
+        
+        }
+
+        function ClearFields() {
+
+        document.getElementById("Num").value = "";
+        document.getElementById("sagot").innerHTML = "ANSWER";
+        document.getElementById("sagot").style.color = "GOLD";
+        }
+    </script>
+</body>
+</html>

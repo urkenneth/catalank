@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Average Quiz</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<h2>A JavaScript that computes the average quiz</h2>
+<div class="container">
+    <label for="q1">Quiz 1:</label>
+    <input type="number" id="q1"  onfocus="this.value=''" value="0">
+    
+    <label for="q2">Quiz 2:</label>
+    <input type="number" id="q2" onfocus="this.value=''" value="0">
+
+<label for="q3">Quiz 3:</label>
+    <input type="number" id="q3"  onfocus="this.value=''" value="0">
+
+<label for="q4">Quiz 4:</label>
+    <input type="number" id="q4"  onfocus="this.value=''" value="0">
+<br/><br/>
+
+    <button onclick="computeAve()">Compute</button> <button onclick="ClearFields()">Clear</button><br/><br/>
+    <h4>Average: <span id="average">0</span></h4>
+    <h4>Remark: <span id="remark">-</span></h4>
+</div>
+
+<p>Submitted by: Hubert I. Caguiat</p>
+<a href="index.html">Back to Choices</a>
+
+<script>
+    function computeAve() {
+        var q1 = parseFloat(document.getElementById('q1').value);
+        var q2 = parseFloat(document.getElementById('q2').value);
+	var q3 = parseFloat(document.getElementById('q3').value);
+	var q4 = parseFloat(document.getElementById('q4').value);
+
+  	if (isNaN(q1) || isNaN(q2) || isNaN(q3) || isNaN(q4)) {
+        alert("Please enter valid grades.");
+        return;
+   	 }
+
+ if (q1 < 50 || q1 > 100 || q2 < 50 || q2 > 100 || q3 < 50 || q3 > 100 || q4 < 50 || q4 > 100) {
+        alert("Grades must be between 50 and 100.");
+        return;
+    }
+
+        var aq = (q1 + q2 + q3 + q4) /4;
+
+        document.getElementById('average').innerHTML =  aq ;
+
+	if (aq>=75){
+	 document.getElementById('average').style.color = "green";
+	 document.getElementById('remark').style.color = "green";
+	document.getElementById('remark').innerHTML = "Congratulations. You Passed the quiz."
+document.body.style.backgroundColor = "#184628"; // Change background color to blue
+	}
+
+	else {
+	 document.getElementById('average').style.color = "red";
+	 document.getElementById('remark').style.color = "red";
+document.body.style.backgroundColor = "#951e15"; // Change background color to blue
+
+
+	document.getElementById('remark').innerHTML = "Sorry, but unfortunately, you Failed the quiz."
+	}
+
+   }
+
+function ClearFields() {
+
+     document.getElementById("q1").value = "0";
+     document.getElementById("q2").value = "0";
+    document.getElementById("q3").value = "0";
+    document.getElementById("q4").value = "0";
+     document.getElementById("average").innerHTML = "0";
+    document.getElementById("remark").innerHTML = "-";
+ document.getElementById('average').style.color = "white";
+ document.getElementById('remark').style.color = "white";
+document.body.style.backgroundColor = "#333"; // Change background color to blue
+}
+
+</script>
+</body>
+</html>

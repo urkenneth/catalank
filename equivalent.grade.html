@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+    <h1>Equivalent Grade </h1>
+    <b><label for="Num1">Enter Score :</label></b>
+    <input type="number" id="num1" onfocus="this.value=''"><br><br>
+
+    <b><label for="Num2">Total Score :</label></b>
+    <input type="number" id="num2" onfocus="this.value=''"><br><br>
+
+    <button onclick="Comparing()">COMPARE</button><br><br>
+    <h1>Grade:<p id="result"></p></h1>
+    <button onclick="ClearFields()">CLEAR</button><br/><br/>
+
+    <script>
+        function Comparing()
+        {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter scores in both fields.");
+                return;
+            }
+
+            if (num1 < 0) {
+                alert("Invalid Input");
+                return;
+            }
+
+            if (num1 > num2) {
+                alert("Your score should not exceed from the total score");
+                return;
+            }
+
+            var egrade = (num1 / num2) * 60 + 40;
+            
+            if (egrade < 1 || egrade > 100) {
+                alert("No grade exceeding in 100");
+                return;
+            }
+            
+            if (egrade >= 78 && egrade <= 80) {
+                document.getElementById('result').textContent = 'NOT BAD';
+                document.getElementById('result').style.color = "bisque";
+            } 
+            else if  (egrade >= 81 && egrade <= 85) {
+		        document.getElementById('result').textContent = 'NICE';
+                document.getElementById('result').style.color = "YELLOW";            
+            }
+            else if  (egrade >= 86 && egrade <= 90) {
+		        document.getElementById('result').textContent = 'GOOD';
+                document.getElementById('result').style.color = "BLUE";
+            }
+            else if  (egrade >= 91 && egrade <= 95) {
+		        document.getElementById('result').textContent = 'VERY GOOD';
+                document.getElementById('result').style.color = "BLACK";
+            }
+            else if  (egrade >= 96 && egrade <= 100) {
+		        document.getElementById('result').textContent = 'EXCELLENT';
+                document.getElementById('result').style.color = "PINK";
+            }
+	        else {
+                document.getElementById('result').textContent = 'SORRY, KULANG PA SA EFFORT...';
+	            document.getElementById('result').style.color = "GRAY";
+	        }   
+        }
+
+        function ClearFields() {
+
+            document.getElementById("num1").value = "0";
+            document.getElementById("num2").value = "0";
+            document.getElementById("result").innerHTML = "";
+
+        }   
+    </script>
+</body>
+</html>

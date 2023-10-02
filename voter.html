@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+        <h1>Identifying Voter</h1>
+        <b><label for="Age">ENTER AGE : </label></b>
+        <input type="number" id="age" onfocus="this.value=''"><br><br>
+    
+        <button onclick="Comparing()">CHECK</button><br/>
+        <h1><p id="result"> RESULT.... </p></h1>
+        <button onclick="ClearFields()">CLEAR</button><br/><br/>
+    
+        <script>
+            function Comparing()
+            {
+                var age = parseFloat(document.getElementById('age').value);
+    
+                if (isNaN(age)) {
+                    alert("Please enter valid age.");
+                    return;
+                   }
+    
+                if (age < 1 || age > 100) {
+                    alert("Invalid Input");
+                    return;
+                }
+                
+                if (age > 18) {
+                    document.getElementById('result').textContent = ' Your allowed to vote. ';
+                    document.getElementById('result').style.color = "Lime";
+                } 
+                else {
+                    document.getElementById('result').textContent = 'Your not allowed to vote. ';
+                    document.getElementById('result').style.color = "RED";               
+                }
+            }
+    
+            function ClearFields() {
+                document.getElementById("age").value = "";
+                document.getElementById("result").innerHTML = "RESULT....";
+                document.getElementById('result').style.color = "DARKBLUE";  
+    
+            }   
+        </script>
+</body>
+</html>
